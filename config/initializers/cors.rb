@@ -1,10 +1,18 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    # 本番: *.vercel.app と、個別指定 FRONTEND_ORIGIN
-    extra = ENV.fetch("FRONTEND_ORIGIN", nil)
+    extra = ENV["FRONTEND_ORIGIN"] # 未設定なら nil
 
-    origins %r{\Ahttps://.*\.vercel\.app\z}, ENV["FRONTEND_ORIGIN"],
-            "http://localhost:5173", "http://127.0.0.1:5173"
-    resource "/api/*", headers: :any, methods: %i[get post patch put delete options]
+    allowed = [
+      %r{\Ahttps://.*\.vercel\.app\z},          # Vercel の本番/プレビュー全部
+      "http://localhost:5173",
+      "http://127.0.0.1:5173"
+    ]
+    allowed << extra if extra # nil は入れない
+
+    origins(*allowed)
+
+    resource "/api/*",
+             headers: :any,
+             methods: %i[get post patch put delete options]
   end
 end

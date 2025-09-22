@@ -69,4 +69,8 @@ ENV PORT=3000
 EXPOSE 3000
 
 # Puma は config/puma.rb で ENV["PORT"] を読むが、念のため明示
-CMD ["./bin/thrust", "./bin/rails", "server", "-b", "0.0.0.0", "-p", "${PORT}"]
+# 既存:
+# CMD ["./bin/thrust", "./bin/rails", "server", "-b", "0.0.0.0", "-p", "${PORT}"]
+
+# 修正:
+CMD ["./bin/thrust", "./bin/rails", "server", "-b", "0.0.0.0"]

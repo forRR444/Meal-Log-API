@@ -64,6 +64,9 @@ USER 1000:1000
 # Entrypoint prepares the database.
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
-# Start server via Thruster by default, this can be overwritten at runtime
-EXPOSE 80
-CMD ["./bin/thrust", "./bin/rails", "server"]
+# Heroku は $PORT を割り当てる。デフォルト 3000 にしておく
+ENV PORT=3000
+EXPOSE 3000
+
+# Puma は config/puma.rb で ENV["PORT"] を読むが、念のため明示
+CMD ["./bin/thrust", "./bin/rails", "server", "-b", "0.0.0.0", "-p", "${PORT}"]

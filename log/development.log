@@ -16436,3 +16436,151 @@ Processing by Api::MealsController#destroy as JSON
 Completed 204 No Content in 7ms (ActiveRecord: 3.3ms (3 queries, 0 cached) | GC: 0.0ms)
 
 
+Started POST "/api/login" for 127.0.0.1 at 2025-09-23 01:56:24 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MealLogApi'*/[0m
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (LOWER(email) = 'alice@example.com') LIMIT 1 /*action='create',application='MealLogApi',controller='sessions'*/[0m
+  ↳ app/controllers/api/sessions_controller.rb:6:in 'Api::SessionsController#create'
+Completed 200 OK in 218ms (Views: 0.1ms | ActiveRecord: 12.8ms (1 query, 0 cached) | GC: 1.2ms)
+
+
+Started GET "/api/meals?eaten_on=2025-09-23" for 127.0.0.1 at 2025-09-23 01:56:25 +0900
+Processing by Api::MealsController#index as JSON
+  Parameters: {"eaten_on" => "2025-09-23"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='MealLogApi',controller='meals'*/[0m
+  ↳ app/controllers/application_controller.rb:19:in 'ApplicationController#authenticate_user!'
+  [1m[36mMeal Load (18.1ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = 2 AND "meals"."eaten_on" = '2025-09-23' ORDER BY "meals"."kind" ASC, "meals"."created_at" ASC /*action='index',application='MealLogApi',controller='meals'*/[0m
+  ↳ app/controllers/api/meals_controller.rb:11:in 'Api::MealsController#index'
+Completed 200 OK in 40ms (Views: 0.1ms | ActiveRecord: 27.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/login" for 127.0.0.1 at 2025-09-23 02:03:12 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MealLogApi'*/[0m
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (LOWER(email) = 'alice@example.com') LIMIT 1 /*action='create',application='MealLogApi',controller='sessions'*/[0m
+  ↳ app/controllers/api/sessions_controller.rb:6:in 'Api::SessionsController#create'
+Completed 200 OK in 214ms (Views: 0.1ms | ActiveRecord: 8.6ms (1 query, 0 cached) | GC: 1.5ms)
+
+
+Started GET "/api/meals?eaten_on=2025-09-23" for 127.0.0.1 at 2025-09-23 02:03:13 +0900
+Processing by Api::MealsController#index as JSON
+  Parameters: {"eaten_on" => "2025-09-23"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='MealLogApi',controller='meals'*/[0m
+  ↳ app/controllers/application_controller.rb:19:in 'ApplicationController#authenticate_user!'
+  [1m[36mMeal Load (0.8ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = 2 AND "meals"."eaten_on" = '2025-09-23' ORDER BY "meals"."kind" ASC, "meals"."created_at" ASC /*action='index',application='MealLogApi',controller='meals'*/[0m
+  ↳ app/controllers/api/meals_controller.rb:11:in 'Api::MealsController#index'
+Completed 200 OK in 17ms (Views: 0.1ms | ActiveRecord: 7.4ms (2 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/api/meals?eaten_on=2025-09-23" for 127.0.0.1 at 2025-09-23 02:03:18 +0900
+Processing by Api::MealsController#index as JSON
+  Parameters: {"eaten_on" => "2025-09-23"}
+  [1m[36mUser Load (5.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='MealLogApi',controller='meals'*/[0m
+  ↳ app/controllers/application_controller.rb:19:in 'ApplicationController#authenticate_user!'
+  [1m[36mMeal Load (0.4ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = 2 AND "meals"."eaten_on" = '2025-09-23' ORDER BY "meals"."kind" ASC, "meals"."created_at" ASC /*action='index',application='MealLogApi',controller='meals'*/[0m
+  ↳ app/controllers/api/meals_controller.rb:11:in 'Api::MealsController#index'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 5.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/meals?eaten_on=2025-09-23" for 127.0.0.1 at 2025-09-23 02:03:18 +0900
+Processing by Api::MealsController#index as JSON
+  Parameters: {"eaten_on" => "2025-09-23"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='MealLogApi',controller='meals'*/[0m
+  ↳ app/controllers/application_controller.rb:19:in 'ApplicationController#authenticate_user!'
+  [1m[36mMeal Load (0.4ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = 2 AND "meals"."eaten_on" = '2025-09-23' ORDER BY "meals"."kind" ASC, "meals"."created_at" ASC /*action='index',application='MealLogApi',controller='meals'*/[0m
+  ↳ app/controllers/api/meals_controller.rb:11:in 'Api::MealsController#index'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.8ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/meals?eaten_on=2025-09-23" for 127.0.0.1 at 2025-09-23 02:03:18 +0900
+Processing by Api::MealsController#index as JSON
+  Parameters: {"eaten_on" => "2025-09-23"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='MealLogApi',controller='meals'*/[0m
+  ↳ app/controllers/application_controller.rb:19:in 'ApplicationController#authenticate_user!'
+  [1m[36mMeal Load (0.7ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = 2 AND "meals"."eaten_on" = '2025-09-23' ORDER BY "meals"."kind" ASC, "meals"."created_at" ASC /*action='index',application='MealLogApi',controller='meals'*/[0m
+  ↳ app/controllers/api/meals_controller.rb:11:in 'Api::MealsController#index'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 2.1ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/meals?eaten_on=2025-09-02" for 127.0.0.1 at 2025-09-23 02:03:21 +0900
+Processing by Api::MealsController#index as JSON
+  Parameters: {"eaten_on" => "2025-09-02"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='MealLogApi',controller='meals'*/[0m
+  ↳ app/controllers/application_controller.rb:19:in 'ApplicationController#authenticate_user!'
+  [1m[36mMeal Load (0.7ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = 2 AND "meals"."eaten_on" = '2025-09-02' ORDER BY "meals"."kind" ASC, "meals"."created_at" ASC /*action='index',application='MealLogApi',controller='meals'*/[0m
+  ↳ app/controllers/api/meals_controller.rb:11:in 'Api::MealsController#index'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.8ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/meals?eaten_on=2025-09-24" for 127.0.0.1 at 2025-09-23 02:03:21 +0900
+Processing by Api::MealsController#index as JSON
+  Parameters: {"eaten_on" => "2025-09-24"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='MealLogApi',controller='meals'*/[0m
+  ↳ app/controllers/application_controller.rb:19:in 'ApplicationController#authenticate_user!'
+  [1m[36mMeal Load (1.2ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = 2 AND "meals"."eaten_on" = '2025-09-24' ORDER BY "meals"."kind" ASC, "meals"."created_at" ASC /*action='index',application='MealLogApi',controller='meals'*/[0m
+  ↳ app/controllers/api/meals_controller.rb:11:in 'Api::MealsController#index'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/meals?eaten_on=2025-09-23" for 127.0.0.1 at 2025-09-23 02:03:23 +0900
+Started GET "/api/meals?eaten_on=2025-09-23" for 127.0.0.1 at 2025-09-23 02:03:23 +0900
+Processing by Api::MealsController#index as JSON
+  Parameters: {"eaten_on" => "2025-09-23"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='MealLogApi',controller='meals'*/[0m
+  ↳ app/controllers/application_controller.rb:19:in 'ApplicationController#authenticate_user!'
+  [1m[36mMeal Load (0.7ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = 2 AND "meals"."eaten_on" = '2025-09-23' ORDER BY "meals"."kind" ASC, "meals"."created_at" ASC /*action='index',application='MealLogApi',controller='meals'*/[0m
+Processing by Api::MealsController#index as JSON
+  ↳ app/controllers/api/meals_controller.rb:11:in 'Api::MealsController#index'
+  Parameters: {"eaten_on" => "2025-09-23"}
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='MealLogApi',controller='meals'*/[0m
+  ↳ app/controllers/application_controller.rb:19:in 'ApplicationController#authenticate_user!'
+  [1m[36mMeal Load (0.5ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = 2 AND "meals"."eaten_on" = '2025-09-23' ORDER BY "meals"."kind" ASC, "meals"."created_at" ASC /*action='index',application='MealLogApi',controller='meals'*/[0m
+  ↳ app/controllers/api/meals_controller.rb:11:in 'Api::MealsController#index'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 1.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/meals?eaten_on=2025-09-23" for 127.0.0.1 at 2025-09-23 02:03:23 +0900
+Processing by Api::MealsController#index as JSON
+  Parameters: {"eaten_on" => "2025-09-23"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='MealLogApi',controller='meals'*/[0m
+  ↳ app/controllers/application_controller.rb:19:in 'ApplicationController#authenticate_user!'
+  [1m[36mMeal Load (0.5ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = 2 AND "meals"."eaten_on" = '2025-09-23' ORDER BY "meals"."kind" ASC, "meals"."created_at" ASC /*action='index',application='MealLogApi',controller='meals'*/[0m
+  ↳ app/controllers/api/meals_controller.rb:11:in 'Api::MealsController#index'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/meals?eaten_on=2025-09-23" for 127.0.0.1 at 2025-09-23 02:03:24 +0900
+Processing by Api::MealsController#index as JSON
+  Parameters: {"eaten_on" => "2025-09-23"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='MealLogApi',controller='meals'*/[0m
+  ↳ app/controllers/application_controller.rb:19:in 'ApplicationController#authenticate_user!'
+  [1m[36mMeal Load (0.5ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = 2 AND "meals"."eaten_on" = '2025-09-23' ORDER BY "meals"."kind" ASC, "meals"."created_at" ASC /*action='index',application='MealLogApi',controller='meals'*/[0m
+  ↳ app/controllers/api/meals_controller.rb:11:in 'Api::MealsController#index'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 1.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/meals?eaten_on=2025-09-23" for 127.0.0.1 at 2025-09-23 02:03:24 +0900
+Processing by Api::MealsController#index as JSON
+  Parameters: {"eaten_on" => "2025-09-23"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='MealLogApi',controller='meals'*/[0m
+  ↳ app/controllers/application_controller.rb:19:in 'ApplicationController#authenticate_user!'
+  [1m[36mMeal Load (1.3ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = 2 AND "meals"."eaten_on" = '2025-09-23' ORDER BY "meals"."kind" ASC, "meals"."created_at" ASC /*action='index',application='MealLogApi',controller='meals'*/[0m
+  ↳ app/controllers/api/meals_controller.rb:11:in 'Api::MealsController#index'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 3.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/meals?eaten_on=2025-09-23" for 127.0.0.1 at 2025-09-23 02:03:24 +0900
+Processing by Api::MealsController#index as JSON
+  Parameters: {"eaten_on" => "2025-09-23"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='MealLogApi',controller='meals'*/[0m
+  ↳ app/controllers/application_controller.rb:19:in 'ApplicationController#authenticate_user!'
+  [1m[36mMeal Load (1.8ms)[0m  [1m[34mSELECT "meals".* FROM "meals" WHERE "meals"."user_id" = 2 AND "meals"."eaten_on" = '2025-09-23' ORDER BY "meals"."kind" ASC, "meals"."created_at" ASC /*action='index',application='MealLogApi',controller='meals'*/[0m
+  ↳ app/controllers/api/meals_controller.rb:11:in 'Api::MealsController#index'
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 3.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
